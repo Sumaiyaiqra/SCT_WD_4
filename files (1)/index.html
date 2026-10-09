@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My To-Do List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>My To-Do List</h1>
+      <p>Organize your day, one task at a time.</p>
+    </header>
+
+    <form id="task-form" class="task-form" autocomplete="off">
+      <div class="row">
+        <label class="sr-only" for="task-input">Task</label>
+        <input id="task-input" type="text" placeholder="What do you need to do?" maxlength="120" required>
+        <button type="submit" class="btn btn-primary">Add task</button>
+      </div>
+      <div class="row due-row">
+        <label for="task-due">Due date and time <span class="muted">(optional)</span></label>
+        <input id="task-due" type="datetime-local">
+      </div>
+    </form>
+
+    <section class="list-panel" aria-labelledby="list-title">
+      <div class="list-head">
+        <h2 id="list-title">Your tasks</h2>
+        <p id="progress-text" class="muted" aria-live="polite">0 of 0 completed</p>
+      </div>
+      <div class="progress" aria-hidden="true"><div id="progress-bar"></div></div>
+
+      <div class="filters" role="group" aria-label="Filter tasks">
+        <button type="button" class="filter is-active" data-filter="all">All</button>
+        <button type="button" class="filter" data-filter="active">To do</button>
+        <button type="button" class="filter" data-filter="done">Completed</button>
+      </div>
+
+      <ul id="task-list" class="task-list"></ul>
+      <p id="empty-state" class="empty" hidden></p>
+
+      <button type="button" id="clear-done" class="btn btn-quiet" hidden>Clear completed tasks</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
